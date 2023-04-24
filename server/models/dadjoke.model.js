@@ -12,6 +12,16 @@ const dadJokeSchema = new Schema(
       required: [true, 'Please enter dad joke punchline.'],
       minLength: [2, 'Punchline must be at least two characters.'],
     },
+    creator: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    likes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   { timestamps: true }
 );

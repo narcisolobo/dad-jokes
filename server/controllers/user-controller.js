@@ -27,6 +27,7 @@ async function registerUser(req, res) {
     res.status(201).json({
       token: userToken,
       username: user.username,
+      id: user._id,
     });
   } catch (err) {
     console.log(err);
@@ -56,6 +57,7 @@ async function loginUser(req, res) {
     res.status(200).json({
       token: userToken,
       username: user.username,
+      id: user._id,
     });
   } catch (err) {
     console.log(err);
@@ -63,4 +65,14 @@ async function loginUser(req, res) {
   }
 }
 
-export { registerUser, loginUser };
+async function getAllUsers(req, res) {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+}
+
+export { registerUser, loginUser, getAllUsers };

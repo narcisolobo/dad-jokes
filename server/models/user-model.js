@@ -34,6 +34,12 @@ const userSchema = new Schema(
         message: '1 uppercase, 1 lowercase, 1 number, at least 8 characters.',
       },
     },
+    likes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'DadJoke',
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -16,16 +16,23 @@ function DadJokeList() {
         setJokes(jokes);
         setIsCurrent(true);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.log(err));
   }, [isCurrent]);
 
   return (
     <Fragment>
-      <h1 className="mb-3">All Dad Jokes</h1>
+      <h1>All Dad Jokes</h1>
+      <h5 className="mb-4">
+        Login or register to roll your eyes at these horrible jokes.
+      </h5>
       {isCurrent && (
         <div className={styles.grid}>
           {jokes.map((joke) => (
-            <DadJokeItem key={joke._id} joke={joke} />
+            <DadJokeItem
+              key={joke._id}
+              joke={joke}
+              setIsCurrent={setIsCurrent}
+            />
           ))}
         </div>
       )}
