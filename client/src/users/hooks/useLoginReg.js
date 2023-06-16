@@ -16,7 +16,7 @@ function useLoginReg() {
       // call api with appropriate uri and data
       const user = await callLoginReg(path, formData);
 
-      // store username and token in local storate
+      // store username and token in local storage
       localStorage.setItem('user', JSON.stringify(user));
 
       // update global state
